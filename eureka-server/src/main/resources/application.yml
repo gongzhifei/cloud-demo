@@ -1,0 +1,20 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: eureka-server
+eureka:
+  instance:
+    hostname: 139.196.225.214
+  server:
+    #是否開啟保護模式
+    enable-self-preservation: true
+    #留存的服務實例低於多少比例進入保護模式
+    renewal-percent-threshold: 0.5
+  client:
+    #是否註冊erueka，高可用模式下啟用
+    register-with-eureka: false
+    #是否啟用獲取服務註冊信息
+    fetch-registry: false
+    service-url:
+      defultZone: http://${eureka.instance.hostname}:${server.port}/eureka/

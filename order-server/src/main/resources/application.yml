@@ -1,0 +1,36 @@
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+  client:
+    serviceUrl:
+      defaultZone: http://139.196.225.214:8081/eureka/
+feign:
+  hystrix:
+    enabled: false
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 10000
+logging:
+  level:
+    io:
+      seata: info
+mybatis:
+  mapperLocations: classpath:mapper/*.xml
+  typeAliasesPackage: com.gzf.order.entity
+server:
+  port: 8082
+spring:
+  application:
+    name: order-server
+  cloud:
+    alibaba:
+      seata:
+        tx-service-group: my_test_tx_group
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    password: gzf_test123
+    url: jdbc:mysql://rm-uf6rbak1734mqbbv86o.mysql.rds.aliyuncs.com/seata
+    username: gzf_test123
